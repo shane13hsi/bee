@@ -1,6 +1,6 @@
 module.exports = function(config) {
   config.set({
-    browsers: ['Chrome'],
+    browsers: ['ChromeCanary'],
     files: [
       {
         pattern: 'test-context.js', watched: false   // 无需 watch 此类文件
@@ -10,8 +10,9 @@ module.exports = function(config) {
     preprocessors: {
       'test-context.js': ['webpack']
     },
-    reporters: ['nyan'],
-    singleRun: true,
+    reporters: ['mocha'],
+    singleRun: false,
+    autoWatch: true,
     webpack: {
       module: {
         loaders: [

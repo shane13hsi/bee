@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "lint": "eslint src",
-    "test": "karma start"
+    "test": "karma start --no-auto-watch --single-run",
+    "tdd": "karma start"
   },
   "devDependencies": {
     "babel-core": "^5.8.3",
