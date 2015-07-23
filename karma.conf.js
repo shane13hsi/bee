@@ -23,11 +23,9 @@ module.exports = function(config) {
     singleRun: false,
     webpack: {
       module: {
-        loaders: [
+        preLoaders: [
           {test: /-test\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'},
-          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'}
-        ],
-        postLoaders: [
+          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
           {
             test: /\.js$/,  // todo: 正则匹配去除 -test.js
             include: constants.SRC_DIR,
