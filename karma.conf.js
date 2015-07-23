@@ -2,6 +2,12 @@ module.exports = function(config) {
   config.set({
     autoWatch: true,
     browsers: ['ChromeCanary'],
+    coverageReporter: {
+      reporters: [
+        {type: 'text'},
+        {type: 'html'}
+      ]
+    },
     files: [
       'src/**/*-test.js',
       'src/**/*-test.coffee'
