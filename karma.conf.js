@@ -2,13 +2,11 @@ module.exports = function(config) {
   config.set({
     browsers: ['ChromeCanary'],
     files: [
-      {
-        pattern: 'test-context.js', watched: false   // 无需 watch 此类文件
-      }
+      'src/**/*-test.js'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'test-context.js': ['webpack']
+      'src/**/*-test.js': ['webpack']
     },
     reporters: ['mocha'],
     singleRun: false,
