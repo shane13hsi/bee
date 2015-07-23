@@ -23,16 +23,17 @@ module.exports = function(config) {
     singleRun: false,
     webpack: {
       module: {
-        preLoaders: [
+        loaders: [
           {test: /-test\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'},
-          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
+          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'}
+        ],
+        postLoaders: [
           {
             test: /\.js$/,  // todo: 正则匹配去除 -test.js
             include: constants.SRC_DIR,
             loader: 'isparta?{ noAutoWrap: false, babel: { stage: 1 } }'
           }
-        ],
-        loaders: []
+        ]
       },
       watch: true
     },
