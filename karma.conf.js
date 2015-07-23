@@ -7,10 +7,10 @@ module.exports = function(config) {
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'src/**/*-test.js': ['webpack'],
-      'src/**/*-test.coffee': ['webpack']
+      'src/**/*-test.js': ['webpack', 'coverage'],
+      'src/**/*-test.coffee': ['webpack', 'coverage']
     },
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
     singleRun: false,
     autoWatch: true,
     webpack: {
