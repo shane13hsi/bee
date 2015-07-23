@@ -11,10 +11,12 @@ module.exports = function(config) {
       ]
     },
     files: [
+      'src/**/*-test.js',
       'src/**/*-test.coffee'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
+      'src/**/*-test.js': ['webpack'],
       'src/**/*-test.coffee': ['webpack']
     },
     reporters: ['mocha', 'coverage'],
@@ -22,9 +24,10 @@ module.exports = function(config) {
     webpack: {
       module: {
         preLoaders: [
+          {test: /-test\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'},
           {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
           {
-            test: /\.js$/,
+            test: /\.js$/,  // todo: 正则匹配去除 -test.js
             include: constants.SRC_DIR,
             loader: 'isparta?{ noAutoWrap: false, babel: { stage: 1 } }'
           }
