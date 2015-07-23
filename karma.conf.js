@@ -1,5 +1,6 @@
 module.exports = function(config) {
   config.set({
+    autoWatch: true,
     browsers: ['ChromeCanary'],
     files: [
       'src/**/*-test.js',
@@ -12,7 +13,6 @@ module.exports = function(config) {
     },
     reporters: ['mocha', 'coverage'],
     singleRun: false,
-    autoWatch: true,
     webpack: {
       module: {
         loaders: [
