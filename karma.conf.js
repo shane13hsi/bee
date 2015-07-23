@@ -10,7 +10,7 @@ module.exports = function(config) {
     preprocessors: {
       'test-context.js': ['webpack']
     },
-    reporters: ['dots'],
+    reporters: ['nyan'],
     singleRun: true,
     webpack: {
       module: {
