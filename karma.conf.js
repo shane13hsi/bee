@@ -1,3 +1,5 @@
+var constants = require('./constants');
+
 module.exports = function(config) {
   config.set({
     autoWatch: true,
@@ -9,22 +11,25 @@ module.exports = function(config) {
       ]
     },
     files: [
-      'src/**/*-test.js',
       'src/**/*-test.coffee'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'src/**/*-test.js': ['webpack', 'coverage'],
-      'src/**/*-test.coffee': ['webpack', 'coverage']
+      'src/**/*-test.coffee': ['webpack']
     },
     reporters: ['mocha', 'coverage'],
     singleRun: false,
     webpack: {
       module: {
-        loaders: [
-          {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader'},
-          {test: /\.coffee?$/, exclude: /node_modules/, loader: 'coffee-loader'},
-        ]
+        preLoaders: [
+          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
+          {
+            test: /\.js$/,
+            include: constants.SRC_DIR,
+            loader: 'isparta?{ noAutoWrap: false, babel: { stage: 1 } }'
+          }
+        ],
+        loaders: []
       },
       watch: true
     },
