@@ -3,7 +3,7 @@ var constants = require('./constants');
 module.exports = function(config) {
   config.set({
     autoWatch: true,
-    browsers: ['ChromeCanary'],
+    browsers: ['PhantomJS'],
     coverageReporter: {
       reporters: [
         {type: 'text'},
