@@ -4,9 +4,7 @@ var webpack = require('webpack');
 var ip = require('ip');
 
 module.exports = {
-  devServer: {
-    contentBase: constants.BUILD_DIR
-  },
+  devtool: 'eval',
 
   entry: {
     app: [
@@ -29,6 +27,7 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
 
