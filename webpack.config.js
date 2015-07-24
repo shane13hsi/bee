@@ -1,22 +1,21 @@
 var constants = require('./constants');
 var path = require('path');
 var webpack = require('webpack');
+var ip = require('ip');
 
 module.exports = {
   entry: {
     app: [
-      'webpack-dev-server/client?http://0.0.0.0:8080',
+      'webpack-dev-server/client?http://' + ip.address() + ':8080',
       'webpack/hot/only-dev-server',
       './src/main.js'
-    ],
-    vendors: ['react']
+    ]
   },
 
   module: {
     loaders: [
       {test: /\.js$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
-    ],
-    noParse: [path.join(constants.NODE_MODULES_DIR, 'react/dist/react-with-addons.min.js')]
+    ]
   },
 
   output: {
@@ -26,15 +25,10 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    new webpack.NoErrorsPlugin()
   ],
 
   resolve: {
-    alias: {
-      'react$': path.join(constants.NODE_MODULES_DIR, 'react/dist/react-with-addons.min.js')
-    },
     extensions: ['', '.js', '.jsx', '.json']
   }
 };
