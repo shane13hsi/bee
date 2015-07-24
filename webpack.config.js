@@ -4,6 +4,10 @@ var webpack = require('webpack');
 var ip = require('ip');
 
 module.exports = {
+  devServer: {
+    contentBase: constants.BUILD_DIR
+  },
+
   entry: {
     app: [
       'webpack-dev-server/client?http://' + ip.address() + ':8080',
