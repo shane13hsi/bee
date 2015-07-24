@@ -2,7 +2,7 @@
   "name": "bee",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node ./dev-server",
+    "dev": "node ./webpack/dev-server",
     "lint": "`npm bin`/eslint src",
     "test": "`npm bin`/karma start --no-auto-watch --single-run",
     "tdd": "`npm bin`/karma start"

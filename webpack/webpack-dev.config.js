@@ -1,4 +1,4 @@
-var constants = require('./constants');
+var constants = require('../constants');
 var path = require('path');
 var webpack = require('webpack');
 var ip = require('ip');
@@ -8,7 +8,7 @@ module.exports = {
 
   entry: {
     app: [
-      'webpack-dev-server/client?http://' + ip.address() + ':8080',
+      'webpack-dev-server/client?http://' + ip.address() + ':' + constants.WEBPACK_DEV_SERVER_PORT,
       'webpack/hot/only-dev-server',
       './src/main.js'
     ]
