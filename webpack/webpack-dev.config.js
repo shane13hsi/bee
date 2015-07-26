@@ -2,13 +2,14 @@ var constants = require('../constants');
 var path = require('path');
 var webpack = require('webpack');
 var ip = require('ip');
+var ipAddress = ip.address();
 
 module.exports = {
   devtool: 'eval',
 
   entry: {
     app: [
-      'webpack-dev-server/client?http://' + ip.address() + ':' + constants.WEBPACK_DEV_SERVER_PORT,
+      'webpack-dev-server/client?http://' + ipAddress + ':' + constants.WEBPACK_DEV_SERVER_PORT,
       'webpack/hot/only-dev-server',
       './src/main.js'
     ]
