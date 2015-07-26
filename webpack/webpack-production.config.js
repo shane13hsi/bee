@@ -6,20 +6,18 @@ var NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 module.exports = {
   entry: {
     app: path.join(constants.SRC_DIR, 'main.js'),
-    vendors: ['react']
+    vendors: ['react', 'react-document-title', 'react-router']
   },
 
   module: {
     loaders: [
       {test: /\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'}
-    ],
-    noParse: [path.join(constants.NODE_MODULES_DIR, 'react/dist/react-with-addons.min.js')]
+    ]
   },
 
   output: {
     path: constants.DIST_DIR,
-    filename: '[name].js',
-    chunkFilename: '[name]-[chunkhash].js'
+    filename: '[name].js'
   },
 
   plugins: [
@@ -53,7 +51,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      'react$': path.join(constants.NODE_MODULES_DIR, 'react/dist/react-with-addons.min.js')
+      'react$': path.join(constants.NODE_MODULES_DIR, 'react')
     },
     extensions: ['', '.js', '.jsx', '.json']
   }
