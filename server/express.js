@@ -12,12 +12,15 @@ module.exports = function() {
   var app = express();
 
   app.use(compression());
+  // todo: 打开，如果不用 dev-server，指向到类似于 dist/ 的磁盘目录上
   //app.use(express.static(constants.BUILD_DIR));
 
+  // todo: 可以试下 isomorphic
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
   });
 
+  // todo：添加 env 判断，只有 development 才使用 hot
   var bundler = require('../webpack/dev-server');
   bundler();
 
