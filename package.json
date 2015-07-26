@@ -2,7 +2,7 @@
   "name": "bee",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node ./webpack/dev-server",
+    "dev": "node ./server",
     "lint": "`npm bin`/eslint src",
     "test": "`npm bin`/karma start --no-auto-watch --single-run",
     "tdd": "`npm bin`/karma start"
@@ -21,6 +21,7 @@
     "eslint-plugin-react": "^3.0.0",
     "express": "^4.13.1",
     "file-loader": "^0.8.4",
+    "http-proxy": "^1.11.1",
     "ip": "^0.3.3",
     "isparta-loader": "^0.2.0",
     "jasmine-core": "^2.3.4",
