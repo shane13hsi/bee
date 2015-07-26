@@ -27,7 +27,7 @@ module.exports = function(config) {
           {test: /-test\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'},
           {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
           {
-            test: /\.js$/,  // todo: 正则匹配去除 -test.js
+            test: /^((?!-test).)*\.js$/,  // 正则匹配去除 -test.js
             include: constants.SRC_DIR,
             loader: 'isparta?{ noAutoWrap: false, babel: { stage: 1 } }'
           }
