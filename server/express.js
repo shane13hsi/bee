@@ -12,7 +12,7 @@ module.exports = function() {
   var app = express();
 
   app.use(compression());
-  app.use(express.static(constants.BUILD_DIR));
+  //app.use(express.static(constants.BUILD_DIR));
 
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
