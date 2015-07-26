@@ -28,8 +28,8 @@ module.exports = {
     }),
     new NyanProgressPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),  // 去重
+    new webpack.optimize.OccurenceOrderPlugin(),  // 使用频繁的 modules ，分配的 id 更短。也同时保证了 moduels 顺序的一直
     new webpack.optimize.UglifyJsPlugin({
       // keep_fnames prevents function name mangling.
       // Function names are useful. Seeing a readable error stack while
@@ -46,7 +46,9 @@ module.exports = {
         keep_fnames: true
       }
       /* eslint-enable camelcase */
-    })
+    }),
+    new webpack.PrefetchPlugin("react"),
+    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment")
   ],
 
   resolve: {
