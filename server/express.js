@@ -12,8 +12,8 @@ module.exports = function() {
   var app = express();
 
   app.use(compression());
-  // todo: 打开，如果不用 dev-server，指向到类似于 dist/ 的磁盘目录上
-  //app.use(express.static(constants.BUILD_DIR));
+  // 打开，如果不用 dev-server，指向到类似于 dist/ 的磁盘目录上
+  app.use('/dist', express.static(constants.DIST_DIR));
 
   // todo: 可以试下 isomorphic
   app.get('/', function(req, res) {
