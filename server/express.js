@@ -20,6 +20,9 @@ module.exports = function() {
     res.sendFile(path.join(__dirname, '/index.html'));
   });
 
+  // todo: 根据 env 判断使用 mock endpoint 还是 alpha
+  require('./api')(app);
+
   // todo：添加 env 判断，只有 development 才使用 hot
   var bundler = require('../webpack/dev-server');
   bundler();

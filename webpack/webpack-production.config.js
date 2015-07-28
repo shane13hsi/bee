@@ -6,11 +6,19 @@ var NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 module.exports = {
   entry: {
     app: path.join(constants.SRC_DIR, 'main.js'),
-    vendors: ['react', 'react-document-title', 'react-router']
+    vendors: [
+      'react',
+      'react-document-title',
+      'react-router'
+    ]
   },
 
   module: {
     loaders: [
+      {test: /\.css$/, loader: 'style!css'},
+      {test: /\.less$/, loader: 'style!css!less'},
+      {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
+      {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
       {test: /\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'}
     ]
   },

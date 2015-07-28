@@ -1,11 +1,15 @@
+import './Body.scss';
 import React from 'react';
 
-export default React.createClass({
+let Body = React.createClass({
+
   render() {
     return (
       <div>
-        <h1>Webpack + React = Awesome</h1>
+
       </div>
     );
   }
 });
+
+export default Body;

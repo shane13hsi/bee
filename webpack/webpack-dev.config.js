@@ -17,6 +17,10 @@ module.exports = {
 
   module: {
     loaders: [
+      {test: /\.css$/, loader: 'style!css'},
+      {test: /\.less$/, loader: 'style!css!less'},
+      {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
+      {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
       {test: /\.js$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
     ]
   },

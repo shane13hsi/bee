@@ -1,0 +1,22 @@
+{
+    "jobGroup": [
+        {
+            "text": "开发",
+            "value": "JF_34"
+        }
+    ],
+    "managementLevel": [
+        {
+            "text": "P4",
+            "value": "24"
+        },
+        {
+            "text": "P5",
+            "value": "25"
+        },
+        {
+            "text": "P6",
+            "value": "26"
+        }
+    ]
+}
