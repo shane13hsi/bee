@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     app: path.join(constants.SRC_DIR, 'main.js'),
     vendors: [
+      'alt',
       'react',
       'react-document-title',
       'react-router'
