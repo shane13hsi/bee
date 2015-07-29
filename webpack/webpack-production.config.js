@@ -8,6 +8,8 @@ module.exports = {
     app: path.join(constants.SRC_DIR, 'main.js'),
     vendors: [
       'alt',
+      'alt/utils/connectToStores',
+      'babel-core/polyfill',
       'react',
       'react-document-title',
       'react-router',
