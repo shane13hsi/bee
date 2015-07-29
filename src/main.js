@@ -1,3 +1,4 @@
+import 'babel-core/polyfill';
 import React from 'react';
 import router from './router';
 

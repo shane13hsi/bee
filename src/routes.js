@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
-import Body from './components/Body';
+import App from './pages/App/AppContainer';
 
 export default (
-  <Route handler={Body} name='body' path='/'>
+  <Route handler={App} name='app' path='/'>
   </Route>
 );

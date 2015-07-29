@@ -10,7 +10,9 @@ module.exports = {
       'alt',
       'react',
       'react-document-title',
-      'react-router'
+      'react-router',
+      'superagent',
+      'superagent-promise'
     ]
   },
 
