@@ -4,8 +4,7 @@ let AppPage = React.createClass({
 
   render() {
     let {enums} = this.props.Enums;
-    console.log(enums);
-    return (<div></div>);
+    return (<div>App Page</div>);
   }
 });
 
