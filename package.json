@@ -51,7 +51,6 @@
   },
   "dependencies": {
     "alt": "^0.17.1",
-    "purecss": "^0.6.0",
     "react": "^0.13.3",
     "react-document-title": "^1.0.2",
     "react-router": "^0.13.3",
