@@ -1,4 +1,3 @@
-// https://github.com/goatslacker/alt/issues/85
 import makeHot from '../../utils/makeHot';
 import alt from '../../alt';
 import EnumsActions from './EnumsActions';

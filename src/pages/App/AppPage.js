@@ -1,10 +1,14 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
 
 let AppPage = React.createClass({
 
   render() {
-    let {enums} = this.props.Enums;
-    return (<div>App Page</div>);
+    return (
+      <div>
+        <Navbar />
+      </div>
+    );
   }
 });
 
