@@ -5,7 +5,7 @@
     "dev": "node ./server",
     "dist": "`npm bin`/webpack -p --config ./webpack/webpack-production.config.js",
     "lint": "`npm bin`/eslint src",
-    "test": "`npm bin`/karma start --no-auto-watch --single-run",
+    "test": "`npm bin`/karma start --no-auto-watch --single-run --browsers PhantomJS",
     "tdd": "`npm bin`/karma start"
   },
   "devDependencies": {
