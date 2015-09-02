@@ -26,7 +26,7 @@ module.exports = function(config) {
           {
             test: /^((?!-test).)*\.js$/,  // 正则匹配去除 -test.js
             include: constants.SRC_DIR,
-            loader: 'isparta?{ noAutoWrap: false, babel: { stage: 1 } }'
+            loader: 'isparta?{ noAutoWrap: false, babel: { stage: 0 } }'
           }
         ]
       },

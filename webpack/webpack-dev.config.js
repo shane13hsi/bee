@@ -37,8 +37,7 @@ module.exports = {
         NODE_ENV: JSON.stringify('development')
       }
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   resolve: {
