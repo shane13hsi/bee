@@ -5,16 +5,7 @@ var NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: path.join(constants.SRC_DIR, 'main.js'),
-        vendors: [
-            'axios',
-            'babel-core/polyfill',
-            'lodash',   // 生产环境做微调
-            'moment',
-            'react',
-            'react-document-title',
-            'react-router'
-        ]
+        app: path.join(constants.SRC_DIR, 'main.js')
     },
 
     module: {
@@ -42,7 +33,6 @@ module.exports = {
         // https://github.com/webpack/webpack/issues/198
         // http://stackoverflow.com/questions/25384360/how-to-prevent-moment-js-from-loading-locales-with-webpack
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         new webpack.optimize.DedupePlugin(),  // 去重
         new webpack.optimize.OccurenceOrderPlugin(),  // 使用频繁的 modules ，分配的 id 更短。也同时保证了 moduels 顺序的一直
         new webpack.optimize.UglifyJsPlugin({
