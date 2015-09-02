@@ -9,7 +9,7 @@ module.exports = {
         vendors: [
             'axios',
             'babel-core/polyfill',
-            'lodash',
+            'lodash',   // 生产环境做微调
             'moment',
             'react',
             'react-document-title',
