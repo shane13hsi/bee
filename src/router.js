@@ -3,5 +3,5 @@ import routes from './routes';
 
 export default createRouter({
   location: HashLocation,
-  routes: routes
+  routes: routes,
 });

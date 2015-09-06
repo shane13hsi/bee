@@ -1,14 +1,12 @@
 import React from 'react';
+import { Component } from 'react';
 
-let AppPage = React.createClass({
-
+class AppPage extends Component {
   render() {
     return (
-      <div>
-        App
-      </div>
+      <div>App</div>
     );
   }
-});
+}
 
 export default AppPage;
