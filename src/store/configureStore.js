@@ -1,19 +1,25 @@
-import { compose, createStore, applyMiddleware } from 'redux';
-import { devTools, persistState } from 'redux-devtools';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
 import reducer from '../reducers';
 
-const logger = createLogger({
-  level: 'info',
-  collapsed: true
-});
+let finalCreateStore;
 
-const finalCreateStore = compose(
-  applyMiddleware(thunk, logger),
-  devTools(),
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-)(createStore);
+if (process.env.NODE_ENV === 'development') {
+  const { compose } = require('redux');
+  const createLogger = require('redux-logger');
+  const logger = createLogger({
+    level: 'info',
+    collapsed: true
+  });
+  const { devTools, persistState } = require('redux-devtools');
+  finalCreateStore = compose(
+    applyMiddleware(thunk, logger),
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+  )(createStore);
+} else {
+  finalCreateStore = applyMiddleware(thunk)(createStore);
+}
 
 export default function configureStore(initialState) {
   const store = finalCreateStore(reducer, initialState);
