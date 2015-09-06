@@ -1,7 +1,12 @@
 import 'babel-core/polyfill';
 import React from 'react';
-import router from './router';
+import { Router, Route } from 'react-router';
+import createHashHistory from 'history/lib/createHashHistory';
+import App from './pages/App/AppPage';
 
-router.run((Handler, state) => {
-  React.render(<Handler {...state} />, document.body);
-});
+React.render(
+  <Router history={createHashHistory()}>
+    <Route component={App} path='/'/>
+  </Router>,
+  document.body
+);
