@@ -1,4 +1,4 @@
-import { REQUEST_ENUMS, RECEIVE_ENUMS } from '../actions/counter';
+import { REQUEST_ENUMS, RECEIVE_ENUMS } from '../actions/enums';
 
 export default function enums(state = {}, action = {}) {
   switch (action.type) {
