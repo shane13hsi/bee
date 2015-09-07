@@ -17,9 +17,10 @@ module.exports = {
 
   module: {
     loaders: [
-      {test: /\.css$/, loader: 'style!css'},
-      {test: /\.less$/, loader: 'style!css!less'},
-      {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
+      {
+        test: /\.(scss|sass)$/,
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'
+      },
       {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
       {test: /\.js$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
     ]
@@ -35,7 +36,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
-      }
+      },
+      __DEVTOOLS__: false,
+      __REDUX_LOGGER__: true
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

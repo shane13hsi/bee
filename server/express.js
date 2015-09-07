@@ -7,7 +7,7 @@ var httpProxy = require('http-proxy');
 var ip = require('ip');
 var path = require('path');
 
-module.exports = function() {
+module.exports = function () {
   var proxy = httpProxy.createProxyServer();
   var app = express();
 
@@ -16,7 +16,7 @@ module.exports = function() {
   app.use('/dist', express.static(constants.DIST_DIR));
 
   // todo: 可以试下 isomorphic
-  app.get('/', function(req, res) {
+  app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
   });
 
@@ -27,17 +27,17 @@ module.exports = function() {
   var bundler = require('../webpack/dev-server');
   bundler();
 
-  app.all('/build/*', function(req, res) {
+  app.all('/build/*', function (req, res) {
     proxy.web(req, res, {
       target: 'http://' + ip.address() + ':' + constants.WEBPACK_DEV_SERVER_PORT
     });
   });
 
-  proxy.on('error', function(e) {
+  proxy.on('error', function (e) {
     console.log('Could not connect to proxy, please try again...');
   });
 
-  app.listen(constants.SERVER_PORT, function() {
+  app.listen(constants.SERVER_PORT, function () {
     console.log('The server started on port ' + constants.SERVER_PORT);
   });
 

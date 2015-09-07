@@ -6,7 +6,7 @@ export const RECEIVE_ENUMS = 'RECEIVE_ENUMS';
 function requestEnum() {
   return {
     type: REQUEST_ENUMS
-  }
+  };
 }
 
 function receiveEnums(json) {

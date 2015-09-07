@@ -1,3 +1,3 @@
-module.exports = function(app) {
+module.exports = function (app) {
   require('./json/enums')(app);
 };

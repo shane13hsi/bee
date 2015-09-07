@@ -12,6 +12,6 @@ module.exports = Object.freeze({
 
   SRC_DIR: path.join(ABSOLUTE_BASE, 'src'),
 
-  SERVER_PORT: 8080,
+  SERVER_PORT: 8000,
   WEBPACK_DEV_SERVER_PORT: 9090
 });

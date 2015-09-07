@@ -1,6 +1,6 @@
 var constants = require('./constants');
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     autoWatch: true,
     browsers: ['ChromeCanary'],

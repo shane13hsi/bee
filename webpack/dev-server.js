@@ -5,16 +5,16 @@ var config = require('./webpack-dev.config');
 var ip = require('ip');
 var ipAddress = ip.address();
 
-module.exports = function() {
+module.exports = function () {
   var compiler = webpack(config);
   var bundleStart = null;
 
-  compiler.plugin('compile', function() {
+  compiler.plugin('compile', function () {
     console.log('Bundling...');
     bundleStart = Date.now();
   });
 
-  compiler.plugin('done', function() {
+  compiler.plugin('done', function () {
     console.log('Bundled in ' + (Date.now() - bundleStart) + 'ms!');
   });
 
@@ -28,7 +28,7 @@ module.exports = function() {
     }
   });
 
-  bundler.listen(constants.WEBPACK_DEV_SERVER_PORT, "0.0.0.0", function(err) {
+  bundler.listen(constants.WEBPACK_DEV_SERVER_PORT, "0.0.0.0", function (err) {
     if (err) {
       console.log(err);
     }

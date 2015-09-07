@@ -10,7 +10,7 @@ import App from './containers/App';
 const history = createHashHistory();
 const store = configureStore();
 
-if (process.env.NODE_ENV === 'development') {
+if (__DEVTOOLS__) {
   const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
   React.render(
     <div>

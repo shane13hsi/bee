@@ -3,23 +3,32 @@ import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
 let finalCreateStore;
+let finalApplyMiddleware;
 
-if (process.env.NODE_ENV === 'development') {
-  const { compose } = require('redux');
+let logger;
+if (__REDUX_LOGGER__) {
   const createLogger = require('redux-logger');
-  const logger = createLogger({
+  logger = createLogger({
     level: 'info',
     collapsed: true
   });
+  finalApplyMiddleware = applyMiddleware(thunk, logger);
+} else {
+  finalApplyMiddleware = applyMiddleware(thunk);
+}
+
+if (__DEVTOOLS__) {
+  const { compose } = require('redux');
   const { devTools, persistState } = require('redux-devtools');
   finalCreateStore = compose(
-    applyMiddleware(thunk, logger),
+    finalApplyMiddleware,
     devTools(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
   )(createStore);
 } else {
-  finalCreateStore = applyMiddleware(thunk)(createStore);
+  finalCreateStore = finalApplyMiddleware(createStore);
 }
+
 
 export default function configureStore(initialState) {
   const store = finalCreateStore(reducer, initialState);
