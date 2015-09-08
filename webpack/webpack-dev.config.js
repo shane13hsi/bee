@@ -7,13 +7,11 @@ var ipAddress = ip.address();
 module.exports = {
   devtool: 'eval',
 
-  entry: {
-    app: [
-      'webpack-dev-server/client?http://' + ipAddress + ':' + constants.WEBPACK_DEV_SERVER_PORT,
-      'webpack/hot/only-dev-server',
-      './src/main.js'
-    ]
-  },
+  entry: [
+    'webpack-dev-server/client?http://' + ipAddress + ':' + constants.WEBPACK_DEV_SERVER_PORT,
+    'webpack/hot/only-dev-server',
+    path.join(constants.SRC_DIR, 'main.js')
+  ],
 
   module: {
     loaders: [

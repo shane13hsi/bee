@@ -4,9 +4,9 @@ var constants = require('../constants');
 var NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: path.join(constants.SRC_DIR, 'main.js')
-  },
+  entry: [
+    path.join(constants.SRC_DIR, 'main.js')
+  ],
 
   module: {
     loaders: [
@@ -18,7 +18,7 @@ module.exports = {
 
   output: {
     path: constants.DIST_DIR,
-    filename: '[name].js'
+    filename: 'bundle.js'
   },
 
   plugins: [
@@ -49,15 +49,10 @@ module.exports = {
         keep_fnames: true
       }
       /* eslint-enable camelcase */
-    }),
-    new webpack.PrefetchPlugin("react"),
-    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment")
+    })
   ],
 
   resolve: {
-    alias: {
-      'react$': path.join(constants.NODE_MODULES_DIR, 'react')
-    },
     extensions: ['', '.js', '.jsx', '.json']
   }
 };
