@@ -17,18 +17,7 @@ if (__REDUX_LOGGER__) {
   finalApplyMiddleware = applyMiddleware(thunk);
 }
 
-if (__DEVTOOLS__) {
-  const { compose } = require('redux');
-  const { devTools, persistState } = require('redux-devtools');
-  finalCreateStore = compose(
-    finalApplyMiddleware,
-    devTools(),
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-  )(createStore);
-} else {
-  finalCreateStore = finalApplyMiddleware(createStore);
-}
-
+finalCreateStore = finalApplyMiddleware(createStore);
 
 export default function configureStore(initialState) {
   const store = finalCreateStore(reducer, initialState);

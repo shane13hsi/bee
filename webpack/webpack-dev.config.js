@@ -37,7 +37,6 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       },
-      __DEVTOOLS__: false,
       __REDUX_LOGGER__: true
     }),
     new webpack.HotModuleReplacementPlugin()

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Counter, Navbar } from '../components';
+import { Counter } from '../components';
 import * as CounterActions from '../actions/counter';
 import { fetchEnums } from '../actions/enums';
 
@@ -17,7 +17,6 @@ class App extends Component {
     const actions = bindActionCreators(CounterActions, dispatch);
     return (
       <div>
-        <Navbar />
         <Counter counter={counter} actions={actions}/>
       </div>
     );

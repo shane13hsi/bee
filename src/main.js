@@ -10,34 +10,15 @@ import App from './containers/App';
 const history = createHashHistory();
 const store = configureStore();
 
-if (__DEVTOOLS__) {
-  const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
-  React.render(
-    <div>
-      <Provider store={store}>
-        {() =>
-          <Router history={history}>
-            <Route component={App} path='/'/>
-          </Router>
-        }
-      </Provider>
-      <DebugPanel top right bottom>
-        <DevTools store={store} monitor={LogMonitor}/>
-      </DebugPanel>
-    </div>,
-    document.getElementById('root')
-  );
-} else {
-  React.render(
-    <Provider store={store}>
-      {() =>
-        <Router history={history}>
-          <Route component={App} path='/'/>
-        </Router>
-      }
-    </Provider>,
-    document.getElementById('root')
-  );
-}
+React.render(
+  <Provider store={store}>
+    {() =>
+      <Router history={history}>
+        <Route component={App} path='/'/>
+      </Router>
+    }
+  </Provider>,
+  document.getElementById('root')
+);
 
 
