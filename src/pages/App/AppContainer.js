@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Counter } from '../components';
-import * as CounterActions from '../actions/counter';
-import { fetchEnums } from '../actions/enums';
+import * as CounterActions from '../../actions/counter';
+import { fetchEnums } from '../../actions/enums';
+import AppPage from './AppPage';
 
-class App extends Component {
+class AppContainer extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -13,11 +13,11 @@ class App extends Component {
   }
 
   render() {
-    const { counter, dispatch } = this.props;
+    const { dispatch } = this.props;
     const actions = bindActionCreators(CounterActions, dispatch);
     return (
       <div>
-        <Counter counter={counter} actions={actions}/>
+        <AppPage {...this.props} actions={actions}/>
       </div>
     );
   }
@@ -27,4 +27,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(AppContainer);
