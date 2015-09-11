@@ -15,10 +15,7 @@ module.exports = {
 
   module: {
     loaders: [
-      {
-        test: /\.(scss|sass)$/,
-        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'
-      },
+      {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
       {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
       {test: /\.js$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
     ]
