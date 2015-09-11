@@ -10,14 +10,14 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://' + ipAddress + ':' + constants.WEBPACK_DEV_SERVER_PORT,
     'webpack/hot/only-dev-server',
-    path.join(constants.SRC_DIR, 'main.js')
+    path.join(constants.SRC_DIR, 'main.jsx')
   ],
 
   module: {
     loaders: [
       {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
       {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
-      {test: /\.js$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
+      {test: /\.(js|jsx)$/, include: constants.SRC_DIR, loaders: ['react-hot', 'babel-loader']}
     ]
   },
 
