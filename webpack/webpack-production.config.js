@@ -12,7 +12,7 @@ module.exports = {
     loaders: [
       {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
       {test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000'},
-      {test: /\.(js|jsx)$/, include: constants.SRC_DIR, loader: 'babel-loader'}
+      {test: /\.jsx?$/, include: constants.SRC_DIR, loader: 'babel-loader'}
     ]
   },
 
