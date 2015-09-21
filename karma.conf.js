@@ -11,12 +11,10 @@ module.exports = function (config) {
       ]
     },
     files: [
-      'src/**/*-test.coffee',
       'src/**/*-test.js'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'src/**/*-test.coffee': ['webpack'],
       'src/**/*-test.js': ['webpack']
     },
     reporters: ['mocha', 'coverage'],
@@ -24,7 +22,6 @@ module.exports = function (config) {
     webpack: {
       module: {
         preLoaders: [
-          {test: /-test\.coffee$/, include: constants.SRC_DIR, loader: 'coffee-loader'},
           {test: /-test\.js$/, include: constants.SRC_DIR, loader: 'babel-loader'},
           {
             test: /^((?!-test).)*\.js$/,  // 正则匹配去除 -test.js
